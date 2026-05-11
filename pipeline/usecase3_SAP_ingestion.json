@@ -1,0 +1,53 @@
+{
+	"name": "usecase3_SAP_ingestion",
+	"properties": {
+		"activities": [
+			{
+				"name": "Ingesting_SAP_Items",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "ODataSource",
+						"query": "$select=ObjectID,ParentObjectID,TypeCode&filter=Typecode eq '002'",
+						"httpRequestTimeout": "00:05:00"
+					},
+					"sink": {
+						"type": "JsonSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings",
+							"copyBehavior": "FlattenHierarchy"
+						},
+						"formatSettings": {
+							"type": "JsonWriteSettings"
+						}
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "ODataResource1",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "Json1",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2026-04-24T03:37:43Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

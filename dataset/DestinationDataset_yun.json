@@ -1,0 +1,20 @@
+{
+	"name": "DestinationDataset_yun",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "CTSJobADLSTarget1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "adf-target-data",
+				"fileSystem": "container1"
+			}
+		},
+		"schema": {}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,80 @@
+{
+	"name": "Usecase8_ADF_AzDatabricks_API",
+	"properties": {
+		"activities": [
+			{
+				"name": "API Ingestion Pipeline",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "Usecase5_REST_API",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true,
+					"parameters": {
+						"currencyparam1": {
+							"value": "@pipeline().parameters.currencyparam1",
+							"type": "Expression"
+						},
+						"filename": "CurrencyData"
+					}
+				}
+			},
+			{
+				"name": "API JSON Curation",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "API Ingestion Pipeline",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/inceptezdatascience2@gmail.com/databricks-code-repo/11_Datafactory_Usecases/ADF_usecase_8_API_CALL",
+					"baseParameters": {
+						"filename": {
+							"value": "@pipeline().parameters.filename",
+							"type": "Expression"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureDatabricks2",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"parameters": {
+			"currencyparam1": {
+				"type": "array",
+				"defaultValue": [
+					"USD",
+					"INR",
+					"AED"
+				]
+			},
+			"filename": {
+				"type": "string",
+				"defaultValue": "SalesData"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2026-05-06T03:12:45Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

@@ -1,0 +1,17 @@
+{
+	"name": "AzureSqlTable_fact",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "izdb",
+			"table": "txn_fact"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

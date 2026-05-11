@@ -1,0 +1,16 @@
+{
+	"name": "ODataResource1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "OData_for_SAP",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "ODataResource",
+		"schema": [],
+		"typeProperties": {
+			"path": "ItemCollection"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

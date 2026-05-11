@@ -1,0 +1,28 @@
+{
+	"name": "tumblingwindowtrigger2",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipeline": {
+			"pipelineReference": {
+				"referenceName": "Usecase9_Pipeline_Dataflow_Params",
+				"type": "PipelineReference"
+			},
+			"parameters": {
+				"pipelineparam1": 2
+			}
+		},
+		"type": "TumblingWindowTrigger",
+		"typeProperties": {
+			"frequency": "Hour",
+			"interval": 1,
+			"startTime": "2026-05-31T02:26:00Z",
+			"delay": "00:00:00",
+			"maxConcurrency": 5,
+			"retryPolicy": {
+				"intervalInSeconds": 30
+			},
+			"dependsOn": []
+		}
+	}
+}

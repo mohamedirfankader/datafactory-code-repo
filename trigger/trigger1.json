@@ -1,0 +1,32 @@
+{
+	"name": "trigger1",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "Usecase8_ADF_AzDatabricks_API",
+					"type": "PipelineReference"
+				},
+				"parameters": {
+					"currencyparam1": [
+						"USD",
+						"SGD"
+					],
+					"filename": "CurrencyData_"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/container1/blobs/triggerfold",
+			"blobPathEndsWith": "_success",
+			"ignoreEmptyBlobs": false,
+			"scope": "/subscriptions/e68a829e-83e8-42bc-8494-b4ceb80be6c7/resourceGroups/wd36-rg1/providers/Microsoft.Storage/storageAccounts/azurestorageaccsooriya",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}

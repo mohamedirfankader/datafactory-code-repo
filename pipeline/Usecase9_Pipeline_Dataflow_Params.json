@@ -1,0 +1,49 @@
+{
+	"name": "Usecase9_Pipeline_Dataflow_Params",
+	"properties": {
+		"activities": [
+			{
+				"name": "Data flow1",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "dataflow1",
+						"type": "DataFlowReference",
+						"parameters": {
+							"partitionparam": {
+								"value": "@pipeline().parameters.pipelineparam1",
+								"type": "Expression"
+							}
+						}
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine",
+					"continuationSettings": {
+						"customizedCheckpointKey": "178424a3-793a-4b85-b12f-c879f4a02804"
+					}
+				}
+			}
+		],
+		"parameters": {
+			"pipelineparam1": {
+				"type": "int",
+				"defaultValue": 4
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2026-05-08T03:16:16Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

@@ -1,0 +1,27 @@
+{
+	"name": "trigger2",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "Usecase9_Pipeline_Dataflow_Params",
+					"type": "PipelineReference"
+				},
+				"parameters": {
+					"pipelineparam1": 2
+				}
+			}
+		],
+		"type": "CustomEventsTrigger",
+		"typeProperties": {
+			"subjectEndsWith": "completed",
+			"subjectBeginsWith": "dataprocessing-xyzsystem",
+			"scope": "/subscriptions/7b676d44-6580-4871-8821-52ad8aef4a14/resourceGroups/res_grp_wd36_2/providers/Microsoft.EventGrid/topics/weblog-topic",
+			"events": [
+				"message"
+			]
+		}
+	}
+}
