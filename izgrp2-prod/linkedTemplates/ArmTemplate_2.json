@@ -1724,8 +1724,8 @@
 						],
 						"userProperties": [],
 						"typeProperties": {
-							"message": "",
-							"errorCode": ""
+							"message": "message1",
+							"errorCode": "1"
 						}
 					}
 				],
