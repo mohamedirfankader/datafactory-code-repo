@@ -1,0 +1,32 @@
+{
+	"name": "azureblobstorage1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "NaukriSourceStorageAcct1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "rdd1.txt",
+				"container": "container1"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "1",
+				"type": "String"
+			},
+			{
+				"name": "chn",
+				"type": "String"
+			}
+		]
+	}
+}
