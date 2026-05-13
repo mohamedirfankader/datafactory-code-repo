@@ -2,20 +2,20 @@
 	"name": "DelimitedText1",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "AzureBlobStorage1",
+			"referenceName": "CTSJobADLSTarget1",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobStorageLocation",
+				"type": "AzureBlobFSLocation",
 				"fileName": {
-					"value": "@concat('file1_',utcNow())",
+					"value": "@concat('CurrencyData_', formatDateTime(utcnow(), 'yyyy-MM-dd_HH-mm-ss'), '.json')",
 					"type": "Expression"
 				},
-				"folderPath": "dir1",
-				"container": "adlscontainer2"
+				"folderPath": "currencydata",
+				"fileSystem": "container1"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",

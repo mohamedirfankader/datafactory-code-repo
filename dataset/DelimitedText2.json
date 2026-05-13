@@ -2,17 +2,16 @@
 	"name": "DelimitedText2",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "AzureBlobStorage1",
+			"referenceName": "CTSJobADLSTarget1",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobStorageLocation",
-				"fileName": "custs_header",
-				"folderPath": "sampledir",
-				"container": "adlscontainer2"
+				"type": "AzureBlobFSLocation",
+				"folderPath": "adfdata",
+				"fileSystem": "container1"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",

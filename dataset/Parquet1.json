@@ -2,7 +2,7 @@
 	"name": "Parquet1",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "AzureDataLakeStorage1",
+			"referenceName": "CTSJobADLSTarget1",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
@@ -10,8 +10,9 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "landing-zone",
-				"fileSystem": "containeringestion"
+				"fileName": "bqclaims",
+				"folderPath": "dataforadb",
+				"fileSystem": "adfcontainer"
 			},
 			"compressionCodec": "snappy"
 		},

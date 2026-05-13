@@ -9,7 +9,7 @@
 		"type": "MySqlTable",
 		"schema": [],
 		"typeProperties": {
-			"tableName": "`dim_tower_source`"
+			"tableName": "cdr"
 		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"
